@@ -9,7 +9,6 @@ Welcome to the Harry Rosen Analytics Shiny Pre-Interview sample evaluation repos
 
 #### Repository Structure
 
-
 Below is a dendogram of the file directory accompanied with a folder description:  
 
 ```{cmd}
@@ -20,10 +19,6 @@ Below is a dendogram of the file directory accompanied with a folder description
 +-- modules
 |   \-- select.R
 +-- README.md
-+-- rsconnect
-|   \-- misura.harryrosen.com
-|       \-- evalencia
-|           \-- analytics-shiny-sample.dcf
 +-- src
 |   +-- 1_load.R
 |   \-- 2_clean.R
@@ -34,8 +29,7 @@ Below is a dendogram of the file directory accompanied with a folder description
 |   |   +-- tab_1.R
 |   |   +-- tab_2.R
 |   |   \-- tab_3.R
-|   \-- ui.R
-\-- uk_eda.R
+|   \-- ui.R  
 ```  
 
 `modules` - a subfolder for existing modules. Add new modules to the project here  
@@ -54,12 +48,24 @@ git clone https://www.github.com/HarryRosen/analytics-shiny-sample.git
 2. Download and install the dependencies if you haven't already for R:   
 
 ```{R}
+#Primary shiny library
 if(!require("shiny")) install.packages('shiny')
+
+#shiny development framework for mobile applications (framework 7)
 if(!require("shinyMobile")) install.packages('shinyMobile')
+
+#Data transformation and aggregation library
 if(!require("dplyr")) install.packages('dplyr')
+
+#Apexchart.js library - interactive visualization   
 if(!require("apexcharter")) install.packages('apexcharter')
-if(!require("readr")) install.packages('readr')
-if(!require("DT")) install.packages('DT')
+
+#Read file extensions to open file type 
+if(!require("readr")) install.packages('readr')  
+
+#Datatable extensions 
+if(!require("DT")) install.packages('DT')  
+
 ```
 
 3. Run `app.R` to render the application from R console or RStudio (preferred) 
@@ -97,7 +103,7 @@ For the *Data Product Developer* position, we are looking for candidates who can
 1. Git practices - What does your branch etiquette look like? How are your commit messages structured? How are your issues structured (if applicable)? When do you commit your changes?   
 2. R & Shiny - Are you familiar with `dplyr`/`magrittr` pipes? Can you conduct Exploratory Data Analysis (Static or Dynamic within Shiny UI)? Can you turn ambiguous questions into tangible answers within an app?  
 3. Development Practices - Do you consider efficiency of approach?  How might some of the existing data cleaning and transformations be made more efficient?   
-4. Business Insights - Are you delivering useful insights to the defined executive audience?  
+4. Business Insights - Are you delivering useful insights to the defined executive audience?   
 
 
 ### How to submit   
@@ -107,7 +113,11 @@ To send us your submission, complete the following:
 1. checkout your custom branch (e.g. [username]); checkout feature and bug branches from your custom branch [if applicable] (e.g. [username]-[#id])    
 2. stage and commit your changes to the corresponding branches  
 3. commit to your custom branch outlined in step 1.  
-4. create a pull request for the 'dev' branch  
+4. create a pull request for the 'dev' branch; include a comment with your UUID, if applicable  
+
+### 
+
+
 
 
 
