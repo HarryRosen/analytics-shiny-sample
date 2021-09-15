@@ -77,23 +77,25 @@ For more information about the underlying dataset, please see: https://www.kaggl
 
 # Feature Request  
 
-The features are suggested routes for a developer to have tasks around what could be done to improve the app's usability. If you have other features you'd prefer to make, create an issue and see about implementing it into your submission. 
+The features are suggested routes for a developer to have tasks around what could be done to improve the app's utility for the audience.  
+
+**If you have other features you'd prefer to make, create an issue and see about implementing it into your submission.** 
 
 The following is a suggested list of tasks we think the app could use in it's current state:   
 *NOTE: It is NOT required to complete all feature requests listed below*
 
-1. Add a feature to the `2_clean.R` script that pertains to geography (`Country`). (ETA: 5 minutes)  
+1. Add a feature to the `2_clean.R` script that pertains to geography (`Country`). (ETA: < 30 minutes)  
 
-2. Add a visualization of a weekly trend by country with UI that controls the date range and the country selection. (ETA: 30 minutes) Consider: [`timetk`](https://github.com/business-science/timetk)    
-3. Include a `datatable()` that has the option to export the country performance into a `.csv` or `.xlsx` file  (ETA: 20 minutes)  
+2. Add a visualization of a weekly trend by country with UI that controls the date range and the country selection. (ETA: < 1 hour) Consider: [`timetk`](https://github.com/business-science/timetk)    
+3. Include a `datatable()` that has the option to export the country performance into a `.csv` or `.xlsx` file  (ETA:  < 1 hour)  
 
-4. Convert a piece of UI into a module in the Shiny code. See the `modules/select.R` code for an example. (ETA: 10 minutes)  
+4. Convert a piece of UI into a module in the Shiny code. See the `modules/select.R` code for an example. (ETA:  < 1 hour)  
 
-5. Add a tooltip to a visualization or piece of UI to help the user navigate the application. (ETA: 5 minutes)  
+5. Add a tooltip to a visualization or piece of UI to help the user navigate the application. (ETA:  < 30 minutes)  
 
-BONUS: Complete all features requested above (ETA: 1 hour)  
+BONUS: Complete all features requested above (ETA:  < 3 hours)  
 
-**EXTRA:** Flex your shiny skills by providing a useful insight for an audience of the executive team to review their e-commerce sales performance. Use your submission to support your claims (ETA: 20 - 60 minutes)  
+**EXTRA:** Flex your shiny skills by providing a useful insight for an audience of the executive team to review their e-commerce sales performance. Use your submission to support your claims    
 
 
 ### What are we looking for  
@@ -108,6 +110,8 @@ For the *Data Product Developer* position, we are looking for candidates who can
 
 ### How to submit   
 
+> In the event you've been sent a UUID, be sure to **include it in the comment to your pull request.** If you have not been sent a UUID, **ensure that we have a way to contact you directly.**   
+
 To send us your submission, complete the following:  
 
 1. checkout your custom branch (e.g. [username]); checkout feature and bug branches from your custom branch [if applicable] (e.g. [username]-[#id])    
@@ -115,7 +119,8 @@ To send us your submission, complete the following:
 3. commit to your custom branch outlined in step 1.  
 4. create a pull request for the 'dev' branch; include a comment with your UUID, if applicable  
 
-### 
+
+
 
 
 
