@@ -1,7 +1,7 @@
 tab_1<-f7Tab(
   tabName = "Overview",
   icon = f7Icon("chart_pie"),
-  active = TRUE,
+  active = FALSE,
   f7Shadow(
     intensity = 10,
     hover = TRUE,

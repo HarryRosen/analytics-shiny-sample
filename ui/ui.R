@@ -34,6 +34,7 @@ ui <- function(lbl = "E-commerce",
              style = "strong",
              animated = FALSE,
              swipeable = TRUE,
+             intro_tab,
              tab_1,
              tab_2,
              tab_3
