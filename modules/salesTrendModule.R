@@ -1,16 +1,18 @@
 
 tableUI <- function(id){
+  #Output of UI
   plotOutput(NS(id,"salesTrendTable"))
 }
 
+#Requires df, timeFrame, countrySel, dateStart, dateEnd when function is called
 tableServer <- function(id,df,timeFrame, countrySel, dateStart, dateEnd){
   moduleServer(id,function(input,output,session){
     output$salesTrendTable <- renderPlot({
       df %>%
-        dplyr::filter(Country == countrySel()) %>% #this is supposed to be input$selectedCountry
-        dplyr::filter(InvoiceDate < as.POSIXct(dateEnd())) %>% #this is supposed to be input$endDate
-        dplyr::filter(InvoiceDate > as.POSIXct(dateStart())) %>% #this is supposed to be input$startDate
-        #all of the above inputs should be from tab_4.R
+        dplyr::filter(Country == countrySel()) %>%
+        dplyr::filter(InvoiceDate < as.POSIXct(dateEnd())) %>%
+        dplyr::filter(InvoiceDate > as.POSIXct(dateStart())) %>%
+        #Sum net product sales column
         summarise_by_time(
           InvoiceDate, .by = timeFrame, TotalNet = sum(total_product_net)
         ) %>%

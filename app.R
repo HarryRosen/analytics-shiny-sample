@@ -86,6 +86,7 @@ shinyApp(
     #Code is entirely commented out as it is moduralized below,
     #Code has been kept to show the development made in feature 2
     #Sales trend plot
+    #Creates plot that tracks weekly trend
     # output[['salesTrend']] = renderPlot({
     #     dfsalesTrend = uk_clean_data %>%
     #       filter(Country == input$selectedCountry1) %>%
@@ -99,6 +100,10 @@ shinyApp(
     #   })
     
     #Moduralized table from feature 2
+    #A modularized version of the above chart
+    #timeFrame can be changed from week to year, biweekly, etc.
+    #Other parameters can be changed from reactive to static if desired
+    #Reuseable code going forward
     tableServer("salesTrend_tbl", df = uk_clean_data, timeFrame = "week",
                 countrySel = reactive(input$selectedCountry1),
                 dateStart = reactive(input$startDate),
@@ -107,9 +112,12 @@ shinyApp(
     #Chart in tab 5, 'Performance'
     #helper function to get data that will be put on chart
     filterPerfData <- reactive({
+      #Filter data based on country
       filter(uk_clean_data, Country == input$selectedPerformanceCountry) %>%
+        # Create year column to group by and filter on
         mutate(year = format(InvoiceDate, "%Y")) %>%
         group_by(year) %>%
+        #Create values that'll be placed into the chart
         summarise(
           totalSales = sum(total_product_sales),
           totalReturns = (sum(total_product_returns))*-1,
@@ -119,9 +127,12 @@ shinyApp(
         )
     })
     
+    #Creates chart in tab 6, 'Performance'
+    #Allows for table exporting (to excel, clipboard, csv)
     output[['performance_tbl']] <- DT::renderDataTable({
       DT::datatable(
         data = filterPerfData(),
+        #Set extensions for export buttons
         extensions = "Buttons",
         options = list(
           fixedColumns = TRUE,
