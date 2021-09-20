@@ -83,19 +83,29 @@ shinyApp(
       top_n_data()
     }, rownames = TRUE)
     
+    #Code is entirely commented out as it is moduralized below,
+    #Code has been kept to show the development made in feature 2
     #Sales trend plot
-    output[['salesTrend']] = renderPlot({
-        dfsalesTrend = uk_clean_data %>%
-          filter(Country == input$selectedCountry1) %>%
-          filter(InvoiceDate < as.POSIXct(input$endDate)) %>%
-          filter(InvoiceDate > as.POSIXct(input$startDate)) %>%
-          summarise_by_time(
-            InvoiceDate, .by = "week", TotalNet = sum(total_product_net)
-          )
-          ggplot(dfsalesTrend, aes(as.Date(InvoiceDate), TotalNet)) + xlab("Date") + ylab("Net Sales") +
-            geom_line() + scale_x_date(date_labels = "%b-%d-%Y")
-      }
-      )
+    # output[['salesTrend']] = renderPlot({
+    #     dfsalesTrend = uk_clean_data %>%
+    #       filter(Country == input$selectedCountry1) %>%
+    #       filter(InvoiceDate < as.POSIXct(input$endDate)) %>%
+    #       filter(InvoiceDate > as.POSIXct(input$startDate)) %>%
+    #       summarise_by_time(
+    #         InvoiceDate, .by = "week", TotalNet = sum(total_product_net)
+    #       )
+    #       ggplot(dfsalesTrend, aes(as.Date(InvoiceDate), TotalNet)) + xlab("Date") + ylab("Net Sales") +
+    #         geom_line() + scale_x_date(date_labels = "%b-%d-%Y")
+    #   })
+    
+    #Moduralized table from feature 2
+    tableServer("salesTrend_tbl", df = uk_clean_data, timeFrame = "week",
+                countrySel = reactive(input$selectedCountry1),
+                dateStart = reactive(input$startDate),
+                dateEnd = reactive(input$endDate))
+    
+    
+    
   }
 )
     

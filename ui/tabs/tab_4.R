@@ -21,7 +21,9 @@ tab_4<-f7Tab(
     hover = TRUE,
     f7Card(
       title = NULL,
-      plotOutput("salesTrend")
+      tableUI("salesTrend_tbl")
+      # below line was kept to show development in feature 2 prior to modularization
+      # plotOutput("salesTrend") 
       
     )
     
