@@ -104,6 +104,36 @@ shinyApp(
                 dateStart = reactive(input$startDate),
                 dateEnd = reactive(input$endDate))
     
+    #Chart in tab 5, 'Performance'
+    #helper function to get data that will be put on chart
+    filterPerfData <- reactive({
+      filter(uk_clean_data, Country == input$selectedPerformanceCountry) %>%
+        mutate(year = format(InvoiceDate, "%Y")) %>%
+        group_by(year) %>%
+        summarise(
+          totalSales = sum(total_product_sales),
+          totalReturns = (sum(total_product_returns))*-1,
+          totalNet = sum(total_product_net),
+          avgItemSalePrice = mean(mean_price),
+          itemsSold = sum(Quantity)
+        )
+    })
+    
+    output[['performance_tbl']] <- DT::renderDataTable({
+      DT::datatable(
+        data = filterPerfData(),
+        extensions = "Buttons",
+        options = list(
+          fixedColumns = TRUE,
+          autoWidth = TRUE,
+          ordering = FALSE,
+          dom = 'tB',
+          buttons = c("copy", "csv", "excel")
+        ),
+        class = "display"
+      )
+    }, rownames = TRUE)
+    
     
     
   }

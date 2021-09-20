@@ -16,6 +16,7 @@ tab_5 <- f7Tab(
     hover = TRUE,
     f7Card(
       title = NULL,
+      DT::dataTableOutput("performance_tbl")
     )
   )
 )
