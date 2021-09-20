@@ -6,6 +6,7 @@ library(readr)
 library(apexcharter)
 require(ggplot2)
 library(DT)
+library(timetk)
 
 #Load the scripts needed for runtime
 sapply(list.files("src", pattern = "*.R",full.names = T), source, globalenv())
@@ -81,6 +82,20 @@ shinyApp(
       req(is.character(input[['grouping']]),top_n_data())
       top_n_data()
     }, rownames = TRUE)
+    
+    #Sales trend plot
+    output[['salesTrend']] = renderPlot({
+        dfsalesTrend = uk_clean_data %>%
+          filter(Country == input$selectedCountry1) %>%
+          filter(InvoiceDate < as.POSIXct(input$endDate)) %>%
+          filter(InvoiceDate > as.POSIXct(input$startDate)) %>%
+          summarise_by_time(
+            InvoiceDate, .by = "week", TotalNet = sum(total_product_net)
+          )
+          ggplot(dfsalesTrend, aes(as.Date(InvoiceDate), TotalNet)) + xlab("Date") + ylab("Net Sales") +
+            geom_line() + scale_x_date(date_labels = "%b-%d-%Y")
+      }
+      )
   }
 )
     

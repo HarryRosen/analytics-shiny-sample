@@ -21,6 +21,8 @@ tab_4<-f7Tab(
     hover = TRUE,
     f7Card(
       title = NULL,
+      plotOutput("salesTrend")
+      
     )
     
   )
