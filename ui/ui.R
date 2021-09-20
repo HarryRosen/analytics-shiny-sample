@@ -37,7 +37,8 @@ ui <- function(lbl = "E-commerce",
              intro_tab,
              tab_1,
              tab_2,
-             tab_3
+             tab_3,
+             tab_4
            )
          ))
 }
