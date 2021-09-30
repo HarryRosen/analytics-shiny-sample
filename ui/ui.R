@@ -36,7 +36,8 @@ ui <- function(lbl = "E-commerce",
              swipeable = TRUE,
              tab_1,
              tab_2,
-             tab_3
+             tab_3,
+             tab_4
            )
          ))
 }
