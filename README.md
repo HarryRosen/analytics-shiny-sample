@@ -110,7 +110,7 @@ For the *Data Product Developer* position, we are looking for candidates who can
 
 ### How to submit   
 
-> In the event you've been sent a UUID, be sure to **include it in the comment to your pull request.** If you have not been sent a UUID, **ensure that we have a way to contact you directly.**   
+> In order to be able to create a pull request, we must first add you as a contributor to the repo. If you have not done so already, **let the recruiter or the team member you are in contact with know your GitHub username** so you can be invited to contribute   
 
 To send us your submission, complete the following:  
 
