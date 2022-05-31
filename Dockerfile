@@ -1,5 +1,7 @@
 FROM rocker/r-ver:3.6.3  
 
+LABEL maintainer="evalencia@harryrosen.com"
+
 # system libraries of general use
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -27,15 +29,11 @@ RUN apt-get update && apt-get install -y \
     selectr \
     caTools \
     BiocManager
-# system library dependency for the euler app
-RUN apt-get update && apt-get install -y \
-    libmpfr-dev 
-
 
 # basic shiny functionality
 RUN R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cloud.r-project.org/')"
 
-# install dependencies of the euler app
+# install dependencies of the shiny sample app
 RUN R -e "install.packages(c('shinyMobile','shinyWidgets','apexcharter','timetk','reactlog','jsonlite'), repos='https://cloud.r-project.org/')"
 
 # copy the app to the image
