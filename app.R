@@ -7,7 +7,7 @@ library(apexcharter)
 require(ggplot2)
 library(DT)
 library(timetk)
-
+reactlog::reactlog_enable()
 #Load the scripts needed for runtime
 sapply(list.files("src", pattern = "*.R",full.names = T), source, globalenv())
 #Define the modules (if applicable)
